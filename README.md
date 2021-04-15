@@ -1,5 +1,3 @@
-# robot-map
-dashboard for controlling all of the robots via finger tips
+## Portal App for share resources among developers
 
-# feature 1
-arm and legs
+#### React App + Node Backend + Sequilizer + MySQL + Express 
