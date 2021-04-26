@@ -62,19 +62,18 @@ class App extends Component {
                 Home
               </Link>
             </li>
-
-            {showModeratorBoard && (
+            {showAdminBoard && (
               <li className="nav-item">
-                <Link to={"/mod"} className="nav-link">
-                  Moderator Board
+                <Link to={"/admin"} className="nav-link">
+                  Admin
                 </Link>
               </li>
             )}
 
-            {showAdminBoard && (
+            {showModeratorBoard && (
               <li className="nav-item">
-                <Link to={"/admin"} className="nav-link">
-                  Admin Board
+                <Link to={"/mod"} className="nav-link">
+                  Moderator
                 </Link>
               </li>
             )}
@@ -90,20 +89,20 @@ class App extends Component {
             {/* everybody see the tutorials */}
             <li className="nav-item">
               <Link to={"/tutorials"} className="nav-link">
-                Tutorials
+                💻Tutorials
               </Link>
             </li>
             {currentUser && (
               <li className="nav-item">
               <Link to={"/add"} className="nav-link">
-                Add Tutorials
+                ➕Add Tutorials
               </Link>
               </li>
             )}
             {currentUser && (
               <li className="nav-item">
               <Link to={"/files"} className="nav-link">
-                File Upload
+                📁File Upload
               </Link>
               </li>
             )}
