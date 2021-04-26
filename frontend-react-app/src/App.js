@@ -18,6 +18,7 @@ import Tutorial from "./components/tutorial.component";
 import TutorialsList from "./components/tutorials-list.component";
 
 import FileUpload from "./components/fileupload.component";
+import ExcelUpload from "./components/excelupload.component";
 
 class App extends Component {
   constructor(props) {
@@ -86,12 +87,13 @@ class App extends Component {
               </li>
               
             )}
-            {/* everybody see the tutorials */}
+            {currentUser && (
             <li className="nav-item">
               <Link to={"/tutorials"} className="nav-link">
                 💻Tutorials
               </Link>
             </li>
+            )}
             {currentUser && (
               <li className="nav-item">
               <Link to={"/add"} className="nav-link">
@@ -103,6 +105,13 @@ class App extends Component {
               <li className="nav-item">
               <Link to={"/files"} className="nav-link">
                 📁File Upload
+              </Link>
+              </li>
+            )}
+            {currentUser && (
+              <li className="nav-item">
+              <Link to={"/excelfiles"} className="nav-link">
+                📁Excel
               </Link>
               </li>
             )}
@@ -152,6 +161,7 @@ class App extends Component {
             <Route exact path="/add" component={AddTutorial} />
             <Route path="/tutorials/:id" component={Tutorial} />
             <Route path="/files" component={FileUpload} />
+            <Route path="/excelfiles" component={ExcelUpload} />
           </Switch>
         </div>
         {/* main */}
