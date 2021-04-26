@@ -18,6 +18,7 @@ import Tutorial from "./components/tutorial.component";
 import TutorialsList from "./components/tutorials-list.component";
 
 import FileUpload from "./components/fileupload.component";
+import ExcelUpload from "./components/excelupload.component";
 
 class App extends Component {
   constructor(props) {
@@ -59,22 +60,21 @@ class App extends Component {
           <div className="navbar-nav mr-auto">
             <li className="nav-item">
               <Link to={"/home"} className="nav-link">
-                Home
+                🏠Home
               </Link>
             </li>
-
-            {showModeratorBoard && (
+            {showAdminBoard && (
               <li className="nav-item">
-                <Link to={"/mod"} className="nav-link">
-                  Moderator Board
+                <Link to={"/admin"} className="nav-link">
+                  Admin
                 </Link>
               </li>
             )}
 
-            {showAdminBoard && (
+            {showModeratorBoard && (
               <li className="nav-item">
-                <Link to={"/admin"} className="nav-link">
-                  Admin Board
+                <Link to={"/mod"} className="nav-link">
+                  Moderator
                 </Link>
               </li>
             )}
@@ -87,23 +87,31 @@ class App extends Component {
               </li>
               
             )}
-            {/* everybody see the tutorials */}
+            {currentUser && (
             <li className="nav-item">
               <Link to={"/tutorials"} className="nav-link">
-                Tutorials
+                💻Tutorials
               </Link>
             </li>
+            )}
             {currentUser && (
               <li className="nav-item">
               <Link to={"/add"} className="nav-link">
-                Add Tutorials
+                ➕Add Tutorials
               </Link>
               </li>
             )}
             {currentUser && (
               <li className="nav-item">
               <Link to={"/files"} className="nav-link">
-                File Upload
+                📁File Upload
+              </Link>
+              </li>
+            )}
+            {currentUser && (
+              <li className="nav-item">
+              <Link to={"/excelfiles"} className="nav-link">
+                📁Excel
               </Link>
               </li>
             )}
@@ -153,6 +161,7 @@ class App extends Component {
             <Route exact path="/add" component={AddTutorial} />
             <Route path="/tutorials/:id" component={Tutorial} />
             <Route path="/files" component={FileUpload} />
+            <Route path="/excelfiles" component={ExcelUpload} />
           </Switch>
         </div>
         {/* main */}
