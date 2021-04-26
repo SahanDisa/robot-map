@@ -17,6 +17,8 @@ import AddTutorial from "./components/add-tutorial.component";
 import Tutorial from "./components/tutorial.component";
 import TutorialsList from "./components/tutorials-list.component";
 
+import FileUpload from "./components/fileupload.component";
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -98,6 +100,13 @@ class App extends Component {
               </Link>
               </li>
             )}
+            {currentUser && (
+              <li className="nav-item">
+              <Link to={"/files"} className="nav-link">
+                File Upload
+              </Link>
+              </li>
+            )}
           </div>
 
           {currentUser ? (
@@ -143,8 +152,11 @@ class App extends Component {
             <Route exact path={["/", "/tutorials"]} component={TutorialsList} />
             <Route exact path="/add" component={AddTutorial} />
             <Route path="/tutorials/:id" component={Tutorial} />
+            <Route path="/files" component={FileUpload} />
           </Switch>
         </div>
+        {/* main */}
+        
       </div>
     );
   }
